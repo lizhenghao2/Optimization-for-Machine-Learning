@@ -1,0 +1,51 @@
+D:\Users\Lea\miniconda3\Lib\site-packages\numpy\linalg\_linalg.py:2792: RuntimeWarning: overflow encountered in dot
+  sqnorm = x.dot(x)
+First 5 rows of the dataset:
+   bd  sqft     price
+1   1  1370  451000.0
+2   4  2060  899000.0
+3   4  1738  944000.0
+4   3  1588  715000.0
+5   4  2092  897000.0
+
+Shape of the dataset:
+(10000000, 3)
+
+Starting stochastic gradient descent with alpha = 5
+Iteration 100: gradient norm = 5.565387e+70
+Iteration 200: gradient norm = 5.844757e+147
+Warning: Non-finite gradient at iteration 210
+
+Normalized Learned parameters:
+[1.27472679e+153 3.06541467e+153 3.42032809e+153]
+
+Starting stochastic gradient descent with alpha = 1
+Iteration 100: gradient norm = 3.232035e+08
+Iteration 200: gradient norm = 7.298213e+21
+Iteration 300: gradient norm = 1.074091e+39
+Iteration 400: gradient norm = 1.297665e+51
+Iteration 500: gradient norm = 1.007471e+62
+
+Normalized Learned parameters:
+[4.78174195e+61 2.49513549e+61 2.71032142e+61]
+
+Starting stochastic gradient descent with alpha = 0.2
+Converged after 17 iterations.
+
+Normalized Learned parameters:
+[-0.11799487  0.66523058  0.36077009]
+
+Recovered parameters:
+[41412.60613555 99290.59141943   225.92845382]
+
+Parameters from actual solution (normalized data):
+[-1.94733119e-16  6.70105301e-01  3.19247596e-01]
+
+Difference between gradient descent and QR solution (normalized):
+[-0.11799487 -0.00487472  0.0415225 ]
+
+Recovered parameters from QR solution:
+
+Level set plot saved as 'level_sets_2D_5a.png'
+x1 fixed at: -0.117995
+Optimal point (x2, x3): (0.665231, 0.360770)

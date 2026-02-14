@@ -1,0 +1,215 @@
+import pandas as pd
+import numpy as np
+from scipy.linalg import qr, solve_triangular
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+df = pd.read_csv('house.csv', index_col=0)
+
+# Print the first 5 rows of the dataset
+print("First 5 rows of the dataset:")
+print(df.head())
+
+print("\nShape of the dataset:")
+print(df.shape)
+
+# Extract features and target variable
+features = df[['bd', 'sqft']].values
+# Construct matrix A
+A = np.column_stack((np.ones(features.shape[0]), features))
+
+# Keep first 1000 rows for faster computation
+A = A[:1000, :]
+df = df.iloc[:1000]
+
+# Normalize features to prevent overflow
+A_mean = A.mean(axis=0)
+A_std = A.std(axis=0)
+A_std[A_std == 0] = 1  # Avoid division by zero
+A_normalized = (A - A_mean) / A_std
+
+y = df['price'].values
+y_mean = y.mean()
+y_std = y.std()
+y_normalized = (y - y_mean) / y_std
+
+# Gradient descent parameters
+stepsizes = [1, 0.1, 10]
+max_iters = 100
+# Initialize x
+x = np.zeros(A_normalized.shape[1])
+
+# Gradient threshold
+threshold = 1e-2
+
+# Keep track of x and f(x) history for plotting
+x_history_1 = [x.copy()]
+x_history_2 = [x.copy()]
+x_history_3 = [x.copy()]
+
+alpha = stepsizes[0]
+print("\nStarting gradient descent with alpha =", alpha)
+for i in range(max_iters):
+    # Compute gradient using normalized data
+    grad = - 1 / A_normalized.shape[0] * A_normalized.T @ (y_normalized - A_normalized @ x)
+    # print(f"Iteration {i+1}: gradient norm = {np.linalg.norm(grad):.6e}")
+    # Check for convergence
+    grad_norm = np.linalg.norm(grad)
+    if np.isnan(grad_norm) or np.isinf(grad_norm):
+        print(f"Warning: Non-finite gradient at iteration {i+1}")
+        break
+    if grad_norm < threshold:
+        print(f"Converged after {i+1} iterations.")
+        break
+    
+    # Update x
+    x -= alpha * grad
+    x_history_1.append(x.copy())
+    # Print progress every 100 iterations
+    if (i + 1) % 100 == 0:
+        print(f"Iteration {i+1}: gradient norm = {grad_norm:.6e}")
+
+print("\nNormalized Learned parameters:")
+print(x)
+
+# Reset x
+x = np.zeros(A_normalized.shape[1])
+alpha = stepsizes[1]
+print("\nStarting gradient descent with alpha =", alpha)
+for i in range(max_iters):
+    # Compute gradient using normalized data
+    grad = - 1 / A_normalized.shape[0] * A_normalized.T @ (y_normalized - A_normalized @ x)
+    # print(f"Iteration {i+1}: gradient norm = {np.linalg.norm(grad):.6e}")
+    # Check for convergence
+    grad_norm = np.linalg.norm(grad)
+    if np.isnan(grad_norm) or np.isinf(grad_norm):
+        print(f"Warning: Non-finite gradient at iteration {i+1}")
+        break
+    if grad_norm < threshold:
+        print(f"Converged after {i+1} iterations.")
+        break
+    
+    # Update x
+    x -= alpha * grad
+    x_history_2.append(x.copy())
+    # Print progress every 100 iterations
+    if (i + 1) % 100 == 0:
+        print(f"Iteration {i+1}: gradient norm = {grad_norm:.6e}")
+
+print("\nNormalized Learned parameters:")
+print(x)
+
+# Reset x
+x = np.zeros(A_normalized.shape[1])
+alpha = stepsizes[2]
+print("\nStarting gradient descent with alpha =", alpha)
+for i in range(max_iters):
+    # Compute gradient using normalized data
+    grad = - 1 / A_normalized.shape[0] * A_normalized.T @ (y_normalized - A_normalized @ x)
+    # print(f"Iteration {i+1}: gradient norm = {np.linalg.norm(grad):.6e}")
+    # Check for convergence
+    grad_norm = np.linalg.norm(grad)
+    if np.isnan(grad_norm) or np.isinf(grad_norm):
+        print(f"Warning: Non-finite gradient at iteration {i+1}")
+        break
+    if grad_norm < threshold:
+        print(f"Converged after {i+1} iterations.")
+        break
+    
+    # Update x
+    x -= alpha * grad
+    x_history_3.append(x.copy())
+    # Print progress every 100 iterations
+    if (i + 1) % 100 == 0:
+        print(f"Iteration {i+1}: gradient norm = {grad_norm:.6e}")
+
+print("\nNormalized Learned parameters:")
+print(x)
+
+# Recover original scale parameters
+theta_0 = x[0] * y_std + y_mean - (x[1] * A_mean[1] / A_std[1]) * y_std - (x[2] * A_mean[2] / A_std[2]) * y_std
+theta_1 = x[1] * y_std / A_std[1]
+theta_2 = x[2] * y_std / A_std[2]
+theta = np.array([theta_0, theta_1, theta_2])
+print("\nRecovered parameters:")
+print(theta)
+
+
+
+# Use QR decompsition to find inverse
+Q, R = qr(A, mode='economic')
+x_qr = solve_triangular(R, Q.T @ y, lower=False)
+print("\nParameters from actual solution:")
+print(x_qr)
+
+# Compare the two sets of parameters
+print("\nDifference between gradient descent and QR solution:")
+print(theta - x_qr)
+
+x_1 = x_qr[0]
+
+# save normalized dataset
+normalized_df = pd.DataFrame(A_normalized, columns=['bias', 'bd_normalized', 'sqft_normalized'])
+normalized_df['price_normalized'] = y_normalized
+normalized_df.to_csv('normalized_house.csv', index=False)
+
+# save parameters to a csv
+params_df = pd.DataFrame({
+    'parameter': ['x_norm', 'x_gd', 'x_qr'],
+    'x1': [x[0], theta[0], x_qr[0]],
+    'x2': [x[1], theta[1], x_qr[1]],
+    'x3': [x[2], theta[2], x_qr[2]]
+})
+params_df.to_csv('parameters.csv')
+
+# Plot level sets of the objective function (using normalized data)
+# Objective function: f(x) = 1/(2n) * ||y_normalized - A_normalized @ x||^2
+x1_fixed = x[0]
+
+# Create a grid for x2 and x3 (normalized parameters)
+x2_range = np.linspace(x[1] - 0.5, x[1] + 0.5, 10)
+x3_range = np.linspace(x[2] - 0.5, x[2] + 0.5, 10)
+X2, X3 = np.meshgrid(x2_range, x3_range)
+
+# Compute objective function values for each (x2, x3) pair
+n = A_normalized.shape[0]
+Z = np.zeros_like(X2)
+
+for i in range(X2.shape[0]):
+    for j in range(X2.shape[1]):
+        x_test = np.array([x1_fixed, X2[i, j], X3[i, j]])
+        residual = y_normalized - A_normalized @ x_test
+        Z[i, j] = (1 / (2 * n)) * np.dot(residual, residual)
+
+# Create the contour plot
+plt.figure(figsize=(10, 8))
+# Handle NaN/inf values in Z
+Z_valid = Z[np.isfinite(Z)]
+if len(Z_valid) > 0 and Z_valid.min() < Z_valid.max():
+    z_min, z_max = Z_valid.min(), Z_valid.max()
+    levels = np.linspace(z_min, z_min + (z_max - z_min) * 0.5, 15)
+else:
+    levels = 15
+contour = plt.contour(X2, X3, Z, levels=levels, cmap='plasma')
+plt.colorbar(contour, label='Objective Function Value')
+
+# Mark the learned parameters (normalized)
+plt.plot(x[1], x[2], 'r*', markersize=15, label=f'GD solution (normalized): ({x[1]:.4f}, {x[2]:.4f})')
+
+# Plot the trajectory of x during gradient descent for different step sizes
+plt.plot([xh[1] for xh in x_history_1], [xh[2] for xh in x_history_1], 'r-', label=f'GD trajectory (alpha={stepsizes[0]})')
+plt.plot([xh[1] for xh in x_history_2], [xh[2] for xh in x_history_2], 'g-', label='GD trajectory (alpha/k)')
+plt.plot([xh[1] for xh in x_history_3], [xh[2] for xh in x_history_3], 'b-', label='GD trajectory (alpha/sqrt(k))')
+
+
+plt.xlabel('x2_normalized (coefficient for bd)', fontsize=12)
+plt.ylabel('x3_normalized (coefficient for sqft)', fontsize=12)
+plt.title(f'Level Sets of Objective Function (Normalized Data)\n(x1 fixed at {x1_fixed:.4f})', fontsize=14)
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig('level_sets_2D_compare.png', dpi=150)
+
+print(f"\nLevel set plot saved as 'level_sets_2D_compare.png'")
+print(f"x1 fixed at: {x1_fixed:.6f}")
+print(f"Optimal point (x2, x3): ({x[1]:.6f}, {x[2]:.6f})")

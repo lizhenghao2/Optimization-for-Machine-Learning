@@ -1,0 +1,47 @@
+First 5 rows of the dataset:
+   bd  sqft     price
+1   1  1370  451000.0
+2   4  2060  899000.0
+3   4  1738  944000.0
+4   3  1588  715000.0
+5   4  2092  897000.0
+
+Shape of the dataset:
+(10000000, 3)
+
+Starting gradient descent with alpha = 5
+Converged after 53 iterations.
+
+Normalized Learned parameters:
+[-1.89960740e-16  6.68733314e-01  3.17876666e-01]
+
+Starting gradient descent with alpha = 1
+Converged after 25 iterations.
+
+Normalized Learned parameters:
+[-1.94757100e-16  6.26988313e-01  3.62364584e-01]
+
+Starting gradient descent with alpha = 0.2
+Iteration 100: gradient norm = 2.193789e-02
+Iteration 200: gradient norm = 1.679515e-02
+Iteration 300: gradient norm = 1.369542e-02
+Iteration 400: gradient norm = 1.153215e-02
+Converged after 494 iterations.
+
+Normalized Learned parameters:
+[-1.94797707e-16  6.25963684e-01  3.63389131e-01]
+
+Recovered parameters:
+[73216.63118068 93429.71600525   227.56859818]
+
+Parameters from actual solution (normalized data):
+[-1.94733119e-16  6.70105301e-01  3.19247596e-01]
+
+Difference between gradient descent and QR solution (normalized):
+[-6.45886432e-20 -4.41416163e-02  4.41415356e-02]
+
+Recovered parameters from QR solution:
+
+Level set plot saved as 'level_sets_2D_4c.png'
+x1 fixed at: -0.000000
+Optimal point (x2, x3): (0.625964, 0.363389)
