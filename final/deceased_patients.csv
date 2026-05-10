@@ -1,0 +1,78 @@
+patient_id,sex,age,country,province,city,infection_case,infected_by,contact_number,symptom_onset_date,confirmed_date,released_date,deceased_date,state
+1000000013,male,80s,Korea,Seoul,Jongno-gu,contact with patient,1000000017,117,,2020-02-16,,,deceased
+1000000109,male,90s,Korea,Seoul,etc,contact with patient,,,2020-03-02,2020-03-07,,,deceased
+1000000285,male,40s,Korea,Seoul,Mapo-gu,Guro-gu Call Center,,,,2020-03-19,,,deceased
+1000000473,male,60s,Korea,Seoul,etc,contact with patient,1000000443,,,2020-03-31,,,deceased
+1000000997,,,Korea,Seoul,Seodaemun-gu,,,,,2020-06-08,,,deceased
+1000001062,,,Korea,Seoul,Dobong-gu,Day Care Center,,,,2020-06-11,,,deceased
+1000001118,,,Korea,Seoul,etc,,,,,2020-06-14,,,deceased
+1100000071,male,70s,Korea,Busan,Busanjin-gu,etc,,1,2020-02-28,2020-02-28,,,deceased
+1100000095,female,80s,Korea,Busan,etc,,,24,2020-02-15,2020-03-13,,,deceased
+1100000097,male,70s,Korea,Busan,Busanjin-gu,etc,,11,2020-03-09,2020-03-13,,,deceased
+1200000038,female,50s,Korea,Daegu,Nam-gu,,,,,2020-02-18,,2020-02-23,deceased
+1200000114,male,70s,Korea,Daegu,,Shincheonji Church,,,,2020-02-21,,2020-02-26,deceased
+1200000620,male,70s,Korea,Daegu,,,,,,2020-02-24,,2020-03-02,deceased
+1200000901,female,80s,Korea,Daegu,,,,,,2020-02-25,,2020-03-04,deceased
+1200001064,female,70s,Korea,Daegu,,,,,,2020-02-26,,2020-03-01,deceased
+1200001288,male,60s,Korea,Daegu,,,,,,2020-02-27,,2020-03-02,deceased
+1200001443,male,70s,Korea,Daegu,,,,,,2020-02-27,,2020-02-27,deceased
+1200001921,male,60s,Korea,Daegu,,,,,,2020-02-28,,2020-03-05,deceased
+1200002085,male,70s,Korea,Daegu,,,,,,2020-02-28,,2020-03-04,deceased
+1200002289,male,60s,Korea,Daegu,,,,,,2020-02-28,,2020-03-05,deceased
+1200002614,female,70s,Korea,Daegu,,,,,,2020-02-29,,2020-03-01,deceased
+1200002769,female,80s,Korea,Daegu,,,,,,2020-02-29,,2020-03-02,deceased
+1200002936,male,80s,Korea,Daegu,,,,,,2020-02-29,,2020-03-06,deceased
+1200003550,female,60s,Korea,Daegu,,,,,,2020-03-01,,2020-03-09,deceased
+1200003578,male,90s,Korea,Daegu,,,,,,2020-03-01,,2020-03-07,deceased
+1200003896,male,80s,Korea,Daegu,,,,,,2020-03-01,,2020-03-03,deceased
+1200003914,male,80s,Korea,Daegu,,,,,,2020-03-01,,2020-03-09,deceased
+1200004046,female,50s,Korea,Daegu,,,,,,2020-03-01,,2020-03-01,deceased
+1200005767,male,80s,Korea,Daegu,,,,,,2020-03-05,,2020-03-05,deceased
+1200007196,male,70s,Korea,Daegu,,,,,,2020-03-08,,2020-03-09,deceased
+1500000019,female,70s,Korea,Daejeon,Seo-gu,etc,,6,,2020-03-11,,2020-05-02,deceased
+1600000015,male,60s,Korea,Ulsan,Nam-gu,etc,,,2020-02-27,2020-02-28,,2020-03-31,deceased
+3014000001,female,80s,Korea,Gangwon-do,Taebaek-si,contact with patient,,,,2020-03-04,,2020-03-04,deceased
+3012000004,female,70s,Korea,Gangwon-do,Cheorwon-gun,contact with patient,,10,,2020-04-03,,2020-04-18,deceased
+3012000007,male,80s,Korea,Gangwon-do,Cheorwon-gun,contact with patient,,1,,2020-04-07,,2020-05-25,deceased
+6001000035,male,60s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-02-25,,2020-04-11,deceased
+6001000062,male,60s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-02-26,,2020-03-08,deceased
+6001000072,male,50s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-02-26,,2020-03-18,deceased
+6001000103,male,70s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-02-28,,2020-03-11,deceased
+6001000123,female,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-02-28,,2020-03-02,deceased
+6001000223,female,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-02,2020-03-30,2020-04-08,deceased
+6001000285,male,60s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-03,,2020-03-04,deceased
+6001000349,female,70s,Korea,Gyeongsangbuk-do,Gyeongsan-si,etc,,,,2020-03-05,2020-05-08,2020-05-11,deceased
+6001000402,female,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-05,,2020-03-16,deceased
+6001000448,female,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,Gyeongsan Jeil Silver Town,,,,2020-03-06,,2020-04-11,deceased
+6001000460,female,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-07,,2020-03-20,deceased
+6001000472,female,90s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-07,,2020-03-16,deceased
+6001000500,male,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-10,,2020-03-26,deceased
+6001000501,male,90s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-10,,2020-03-26,deceased
+6001000528,male,70s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-15,,2020-03-16,deceased
+6001000565,male,90s,Korea,Gyeongsangbuk-do,Gyeongsan-si,etc,,,,2020-03-20,,2020-04-02,deceased
+6001000567,male,90s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-20,,2020-03-27,deceased
+6001000568,male,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-20,,2020-03-25,deceased
+6001000571,female,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-20,,2020-03-29,deceased
+6001000572,male,70s,Korea,Gyeongsangbuk-do,Gyeongsan-si,etc,,,,2020-03-20,,2020-04-03,deceased
+6001000573,male,70s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-20,,2020-03-25,deceased
+6001000574,male,70s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-20,,2020-03-24,deceased
+6001000582,female,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,etc,,,,2020-03-20,,2020-04-05,deceased
+6001000584,male,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,etc,,,,2020-03-21,,2020-03-31,deceased
+6001000588,female,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,,,,,2020-03-25,,2020-03-26,deceased
+6001000599,male,70s,Korea,Gyeongsangbuk-do,Gyeongsan-si,etc,,,,2020-03-26,,2020-04-06,deceased
+6001000610,female,70s,Korea,Gyeongsangbuk-do,Gyeongsan-si,etc,,,,2020-03-29,,2020-03-31,deceased
+6001000612,female,80s,Korea,Gyeongsangbuk-do,Gyeongsan-si,etc,,,,2020-03-29,,2020-04-03,deceased
+6002000002,male,40s,Korea,Gyeongsangbuk-do,Gyeongju-si,etc,,,,2020-02-22,,,deceased
+6008000060,female,90s,Korea,Gyeongsangbuk-do,Bonghwa-gun,Bonghwa Pureun Nursing Home,,,,2020-03-11,,2020-03-22,deceased
+6010000014,male,80s,Korea,Gyeongsangbuk-do,Seongju-gun,contact with patient,,,2020-02-26,2020-03-04,,2020-03-05,deceased
+6015000006,female,70s,Korea,Gyeongsangbuk-do,Yeongcheon-si,Shincheonji Church,,,,2020-02-21,,2020-04-09,deceased
+6015000035,male,70s,Korea,Gyeongsangbuk-do,Yeongcheon-si,etc,,,,2020-03-06,,2020-03-07,deceased
+6016000020,female,80s,Korea,Gyeongsangbuk-do,Yecheon-gun,contact with patient,6016000015,,,2020-04-12,,2020-04-22,deceased
+6020100054,male,50s,Korea,Gyeongsangbuk-do,Cheongdo-gun,Cheongdo Daenam Hospital,,,,2020-02-19,,2020-02-23,deceased
+6020100055,male,50s,Korea,Gyeongsangbuk-do,Cheongdo-gun,Cheongdo Daenam Hospital,,,,2020-02-19,,2020-02-23,deceased
+6020100104,male,60s,Korea,Gyeongsangbuk-do,Cheongdo-gun,Cheongdo Daenam Hospital,,,,2020-02-20,,2020-02-19,deceased
+6020100107,male,60s,Korea,Gyeongsangbuk-do,Cheongdo-gun,Cheongdo Daenam Hospital,,,,2020-02-21,,2020-02-24,deceased
+6020100205,female,50s,Korea,Gyeongsangbuk-do,Cheongdo-gun,Cheongdo Daenam Hospital,,,,2020-02-22,,2020-02-21,deceased
+6020100286,male,60s,Korea,Gyeongsangbuk-do,Cheongdo-gun,Cheongdo Daenam Hospital,,,,2020-02-22,,2020-02-23,deceased
+6020100298,male,50s,Korea,Gyeongsangbuk-do,Cheongdo-gun,Cheongdo Daenam Hospital,,,,2020-02-22,,2020-02-25,deceased
+6022000049,female,80s,Korea,Gyeongsangbuk-do,Chilgok-gun,,,,,2020-03-15,2020-03-24,,deceased
